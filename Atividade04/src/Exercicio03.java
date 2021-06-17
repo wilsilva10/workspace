@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 
 import javax.swing.JOptionPane;
 
@@ -10,27 +10,18 @@ public class Exercicio03 {
 //	  Entrada > "Digite 1 número"
 //	  Saída > "Os números entre ? e ? são: ?, ?, ?, ? "
 		
-		ArrayList<Integer> numeros = new ArrayList<Integer>();
-		int num1 = Integer.parseInt(JOptionPane.showInputDialog("Digite o primeiro número: "));
-		int num2 = Integer.parseInt(JOptionPane.showInputDialog("Digite o segundo número: "));
+		int n1 = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 número"));
+		int n2 = Integer.parseInt(JOptionPane.showInputDialog("Digite 1 número"));
 		
-		if(num1 == num2) {
-			JOptionPane.showMessageDialog(null, "Números iguais: " + num1 + " / " + num2);
+		String numeros = "";
+		int[] ns = new int[n2 - n1 -1];
+		int cont = 0;
+		for(int i = (n1 + 1); i <= (n2 -1); i++) {
+			numeros = numeros + i +",";
+			ns[cont++] = i;
 		}
-		else if(num1 < num2){
-			for(int i= ++num1;  i<num2; i++) {			
-				numeros.add(i);
-			}
-			JOptionPane.showMessageDialog(null, "Os números entre: " + --num1 + " / " + num2 +" são:  "+ numeros);
-		}
-		
-		else if (num1 > num2){
-			
-			for(int i= --num1;  i>num2; i--) {			
-				numeros.add(i);
-
-			}
-			JOptionPane.showMessageDialog(null, "Os números entre: " + ++num1 + " / " + num2 +" são:  "+ numeros);
-		}
+		System.out.println(java.util.Arrays.toString(ns));
+		System.out.println(ns.toString());
+		JOptionPane.showMessageDialog(null, "Os números entre "+n1+" e "+n2+" são: "+numeros);
 	}
 }
