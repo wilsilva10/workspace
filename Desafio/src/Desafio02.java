@@ -28,13 +28,16 @@ public class Desafio02 {
 		int usuario = JOptionPane.showOptionDialog(null, "GAME DESAFIO - ESCOLHA A OPÇÃO: ", "**JoKenPô**", 0,
 				JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
 		int computador = gerarPc(3);
-		
-		
+		Object[] jogo = { "SIM", "NÃO"};
+		int e = 0;
+		int d = 0;
+		int v = 0;
+		int resultado;
 //		int ret = JOptionPane.showOptionDialog(null, "GAME DESAFIO - ESCOLHA A OPÇÃO: ", "**JoKenPô**", 0, JOptionPane.YES_NO_OPTION, null,
 //				retorno, retorno[0]);
 //		
 		// Chamada para saber qual a escolha do usuario
-		
+		do {
 		String escolhaU = "";
 		if (usuario == 0) {
 			escolhaU = "PEDRA";
@@ -57,24 +60,30 @@ public class Desafio02 {
 			break;
 		}
 		// Logica do jogo para saber quem é o vencedor
+	
 		String result = "";
 		if (usuario == computador) {
 			result = "Empate ";
+			e++;
 		} else if ((usuario == 0 && computador == 2) || (usuario == 2 && computador == 1)
 				|| (usuario == 1 && computador == 0)) {
 			result = "Vitória";
+			v++;
 		} else {
 			result = "Derrota";
+			d++;
 			
 		}
 		
-		
-		Object[] jogo = { "SIM", "NÃO"};
-//		JOptionPane.showMessageDialog(null,"Eu (" + escolhaU + ") " + " X Pc (" + escolhaPc + ")" + "\nResultado: "+ result);
-		int resultado = JOptionPane.showOptionDialog(null, "Eu (" + escolhaU + ") " + " X Pc (" + escolhaPc + ")" + 
+		 resultado = JOptionPane.showOptionDialog(null, "Eu (" + escolhaU + ") " + " X Pc (" + escolhaPc + ")" + 
 		"\nResultado: "+ result + "\nDeseja jogar novamente? ", 
 		"**JoKenPô**", 0, JOptionPane.INFORMATION_MESSAGE, null,
 		jogo, jogo[0]);
+		} while(resultado ==1); 
+			JOptionPane.showMessageDialog(null, "Placar final \n Vitórias: "+v+"\n Derrotas: "+d+"\nEmpates: "+e );
+		
+		
+		
 	}
 
 }
