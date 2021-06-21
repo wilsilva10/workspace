@@ -46,7 +46,7 @@ public class Desafio02 {
 		} else {
 			escolhaU = "TESOURA";
 		}
-		// Chamada para saber qual a escolha do usuario
+		// Chamada para saber qual a escolha do computador
 		String escolhaPc = " ";
 		switch (computador) {
 		case 0:
@@ -59,7 +59,7 @@ public class Desafio02 {
 			escolhaPc = "TESOURA";
 			break;
 		}
-		// Logica do jogo para saber quem é o vencedor
+		// Logica do jogo para saber o resultado
 	
 		String result = "";
 		if (usuario == computador) {
@@ -79,8 +79,8 @@ public class Desafio02 {
 		"\nResultado: "+ result + "\nDeseja jogar novamente? ", 
 		"**JoKenPô**", 0, JOptionPane.INFORMATION_MESSAGE, null,
 		jogo, jogo[0]);
-		} while(resultado ==1); 
-			JOptionPane.showMessageDialog(null, "Placar final \n Vitórias: "+v+"\n Derrotas: "+d+"\nEmpates: "+e );
+		} while(resultado !=1); 
+			JOptionPane.showMessageDialog(null, "Placar final \n Vitórias: "+v+"\n Derrotas: "+d+"\n Empates: "+e );
 		
 		
 		
