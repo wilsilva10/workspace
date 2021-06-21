@@ -34,6 +34,7 @@ public class Desafio02 {
 //				retorno, retorno[0]);
 //		
 		// Chamada para saber qual a escolha do usuario
+		
 		String escolhaU = "";
 		if (usuario == 0) {
 			escolhaU = "PEDRA";
@@ -73,10 +74,7 @@ public class Desafio02 {
 		int resultado = JOptionPane.showOptionDialog(null, "Eu (" + escolhaU + ") " + " X Pc (" + escolhaPc + ")" + 
 		"\nResultado: "+ result + "\nDeseja jogar novamente? ", 
 		"**JoKenPô**", 0, JOptionPane.INFORMATION_MESSAGE, null,
-		opcoes, opcoes[0]);
-	  if(resultado == 0) {
-		  System.out.println(resultado);
-	  }
+		jogo, jogo[0]);
 	}
 
 }
