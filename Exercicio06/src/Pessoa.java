@@ -1,58 +1,50 @@
 import java.time.LocalDate;
 
+
 public class Pessoa {
 	private String nome;
-	private double altura;
-	private int diaNas;
-	private int mesNas;
-	private int anoNas;
-	
+	private LocalDate dataNasc;
+	private float altura;
+
+	// calculo idade pessoa
+	public int idade() {
+		LocalDate hoje = LocalDate.now();
+		int idade = hoje.getYear() - dataNasc.getYear();
+		if (dataNasc.getMonthValue() > hoje.getMonthValue() || dataNasc.getMonthValue() > hoje.getMonthValue()
+				&& (dataNasc.getDayOfMonth() > hoje.getDayOfMonth())) {
+			idade--;
+		}
+		return idade;
+	}
+
+	// imprimir todos os dados da pessoa
+	public String dados() {
+		return "Dados da pessoa" + "\n Nome: " + nome + "\nData Nascimento: " + dataNasc+ "\nAltura: " + altura
+				+ "\nIdade: " + idade();
+	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public double getAltura() {
+
+	public LocalDate getDataNasc() {
+		return dataNasc;
+	}
+
+	public void setDataNasc(LocalDate dataNasc) {
+		this.dataNasc = dataNasc;
+	}
+
+	public float getAltura() {
 		return altura;
 	}
-	public void setAltura(double altura) {
+
+	public void setAltura(float altura) {
 		this.altura = altura;
 	}
-	public int getDiaNas() {
-		return diaNas;
-	}
-	public void setDiaNas(int diaNas) {
-		this.diaNas = diaNas;
-	}
-	public int getMesNas() {
-		return mesNas;
-	}
-	public void setMesNas(int mesNas) {
-		this.mesNas = mesNas;
-	}
-	public int getAnoNas() {
-		return anoNas;
-	}
-	public void setAnoNas(int anoNas) {
-		this.anoNas = anoNas;
-	}
-	public int idade() {
-		
-		LocalDate data = LocalDate.now();
-		int ano = data.getYear();
-		int idade = ano - this.getAnoNas();
-		
-		return idade;
-	}
-	
-	public String infPes() {
-		return "Dados" 
-			 + "\n" + "nome: " + this.getNome()
-			 + "\n" + "data de nascimento: " + this.getDiaNas() +"/"+this.getMesNas()+"/"+this.getAnoNas()
-			 + "\n" + "idade: " + idade()
-			 + "\n" + "altura: " + this.getAltura();
-	}
-	
-	
+
 }

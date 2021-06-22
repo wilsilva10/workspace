@@ -1,23 +1,38 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 import javax.swing.JOptionPane;
 
 public class Main {
 	public static void main(String[] args) {
-		Pessoa pes = new Pessoa();
-		
-		String nome = JOptionPane.showInputDialog("Digite o nome: ");
-		double altura = Double.parseDouble(JOptionPane.showInputDialog("Digite a altura: "));
-		int diaNas = Integer.parseInt(JOptionPane.showInputDialog("Digite o dia do seu aniversário: "));
-		int mesNas = Integer.parseInt(JOptionPane.showInputDialog("Digite o mês do seu aniversário: "));
-		int anoNas = Integer.parseInt(JOptionPane.showInputDialog("Digite o ano do seu aniversário: "));
-		
-				
-		pes.setNome(nome);
-		pes.setAltura(altura);
-		pes.setDiaNas(diaNas);
-		pes.setMesNas(mesNas);
-		pes.setAnoNas(anoNas);
-		
-		JOptionPane.showMessageDialog(null, pes.infPes());		
-		
+		boolean repetir = true;
+
+		do {
+			try {
+				Pessoa p1 = new Pessoa();
+
+				p1.setNome(JOptionPane.showInputDialog("Digite o nome: "));
+				DateTimeFormatter formatoDt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+				p1.setDataNasc(LocalDate.parse(
+						JOptionPane.showInputDialog("Digite a data de nascimento no formato DD/MM/AAAA: "), formatoDt));
+				p1.setAltura(Float.parseFloat(JOptionPane.showInputDialog("Digite a sua altura: ").replace(",", ".")));
+
+				JOptionPane.showMessageDialog(null, p1.dados());
+				repetir = false;
+			} catch (NumberFormatException nfe) {
+				JOptionPane.showMessageDialog(null, "Valor númerico inválido! ");
+			}
+
+			catch (DateTimeParseException dtpe) {
+				JOptionPane.showMessageDialog(null, "Data de Nasciomento inválida! ");
+			}
+
+			catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "ALGO DEU ERRRADO");
+
+			}
+		} while (repetir = false);
+
 	}
 }

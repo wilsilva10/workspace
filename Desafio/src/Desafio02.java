@@ -32,13 +32,15 @@ public class Desafio02 {
 //		int ret = JOptionPane.showOptionDialog(null, "GAME DESAFIO - ESCOLHA A OPÇÃO: ", "**JoKenPô**", 0, JOptionPane.YES_NO_OPTION, null,
 //				retorno, retorno[0]);
 //		
-		// Chamada para saber qual a escolha do usuario
+		
 		do {
+			
 			Object[] opcoes = { "PEDRA", "PAPEL", "TESOURA" };
 			int usuario = JOptionPane.showOptionDialog(null, "GAME DESAFIO - ESCOLHA A OPÇÃO: ", "**JoKenPô**", 0,
 					JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
 			int computador = gerarPc(3);
 			Object[] jogo = { "SIM", "NÃO"};
+			// Chamada para saber qual a escolha do usuario
 			String escolhaU = "";
 			if (usuario == 0) {
 				escolhaU = "PEDRA";
