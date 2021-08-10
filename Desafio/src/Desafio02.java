@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 
 public class Desafio02 {
 
-	static int gerarPc(int pc) {
+	static int gerarPc() {
 		return (int) (Math.random() * 3);
 	}
 
@@ -38,7 +38,7 @@ public class Desafio02 {
 			Object[] opcoes = { "PEDRA", "PAPEL", "TESOURA" };
 			int usuario = JOptionPane.showOptionDialog(null, "GAME DESAFIO - ESCOLHA A OPÇÃO: ", "**JoKenPô**", 0,
 					JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-			int computador = gerarPc(3);
+			int computador = gerarPc();
 			Object[] jogo = { "SIM", "NÃO"};
 			// Chamada para saber qual a escolha do usuario
 			String escolhaU = "";
