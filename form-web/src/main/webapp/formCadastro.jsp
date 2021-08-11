@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
+    <title>PÃ¡gina Inicial</title>
     <link rel="stylesheet" href="css/estilo.css">
 
     <style>
@@ -20,19 +20,20 @@
 </head>
 
 <body>
-    <form action="api-cadastro.jsp">
         <fieldset>
+         
             <legend>CADASTRO</legend>
+            <form action="formCadastro" method="post">
             <img id="img-java" src="img/java.png" alt="imagem java">
             <label for="nome">Nome Completo:</label>
-            <input class="larguraTexto" type="text" id="nome" name="nome-completo"
+            <input class="larguraTexto" type="text" id="nome" name="nomeCompleto"
                 placeholder="Digite seu nome completo">
             <label for="telefone">Telefone:</label>
-            <input class="larguraTexto" type="text" placeholder="(61)9.9999-9999">
+            <input class="larguraTexto" type="text" name="telefone" placeholder="(61)9.9999-9999">
             <label for="dtNascimento">Data de Nascimento:</label>
-            <input class="larguraTexto" type="date" id="dtNascimento" name="dt-nascimento">
+            <input class="larguraTexto" type="date" id="dtNascimento" name="dtNascimento">
             <label for="email">E-mail:</label>
-            <input class="larguraTexto" type="email" id="email">
+            <input class="larguraTexto" type="email" id="email" name="email">
             <label for="sexo">Sexo:</label>
             <div class="bloco-inline">
                 <input type="radio" id="masc" name="sexo" value="m"> <label for="masc"> Masculino</label>
@@ -49,13 +50,13 @@
             <select name="escolaridade" id="escolaridade">
                 <option value="">Selecione</option>
                 <option value="Fundamental">Fundamental</option>
-                <option value="Ensino Médio">Ensino Médio</option>
-                <option value="Superio">Superio</option>
+                <option value="Ensino MÃ©dio">Ensino MÃ©dio</option>
+                <option value="Superio">Superior</option>
             </select>
             <input type="submit" class="bt" value="Enviar">
             <input type="reset" class="bt" value="Limpar">
+            </form>
         </fieldset>
-    </form>
 </body>
 
 </html>

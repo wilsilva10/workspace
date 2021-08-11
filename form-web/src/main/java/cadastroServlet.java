@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet("/cadastro")
+@WebServlet("/cadastroServlet")
 public class cadastroServlet extends HttpServlet{
 	protected void service (HttpServletRequest req,
 	          HttpServletResponse res)  throws ServletException, IOException{
@@ -16,4 +16,5 @@ public class cadastroServlet extends HttpServlet{
 	  saida.println("<body>Olá mundo Servlet"+nome+"</body>");
 	  saida.println("</html>");
 	  }
+	
 }
