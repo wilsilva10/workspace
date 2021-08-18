@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Formulário de Cadastro</title>
 <link rel="stylesheet" href="css/estilo.css">
 
 <style>

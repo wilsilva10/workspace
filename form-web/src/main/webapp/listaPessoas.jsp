@@ -12,6 +12,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Listar Pessoas</title>
+
+
+<style>
+fieldset {
+    width: 50%;
+    margin: auto;
+    border: 2px solid blueviolet;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: blue;
+    background-color: #fcf9bc;
+  }
+  
+
+
+td {
+  text-align: center;
+  border-left-width: 100px;
+  min-width: 150px;
+  height: 20px;
+}
+
+a {
+    border: 2px solid blueviolet;
+    background-color: white;
+    font-weight: bold;
+    color:blueviolet;
+    padding: 5px 10px;
+    border-radius: 5px;
+    float: right;
+    text-decoration: none;
+}
+
+
+a:hover {
+    cursor: pointer;
+    background-color: blueviolet;
+    color: white;
+}
+
+</style>
 </head>
 <body>
 
@@ -20,7 +65,9 @@
 	List<Pessoa> ls = objDao.listarPessoa();
 	if (ls.size() > 0) {
 	%>
-	<table>
+		<fieldset>
+	<table class="table">
+
 		<tr>
 			<th>ID</th>
 			<th>Nome</th>
@@ -36,13 +83,14 @@
 			<td><%=p.getNomeCompleto()%></td>
 			<td><%=p.getEmail()%></td>
 			<td><a href="formCadastro.jsp?id=<%=p.getId()%>" >Editar</a>
-			<a href="cadastroServlet?acao=apagar&id=<%=p.getId()%>" >Apagar</a></td>
+			<a href="cadastroServlet?acao=apagar&id=<%=p.getId()%>" > Apagar</a></td>
 		</tr>
 		<%
 		}
 		%>
 
 	</table>
+	</fieldset>
 	<%
 	}
 	%>
