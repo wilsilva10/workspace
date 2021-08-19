@@ -42,9 +42,10 @@ public class PessoaDao {
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				Pessoa p = new Pessoa();
+				p.setId(rs.getInt("id"));
 				p.setNomeCompleto(rs.getString("nomecompleto"));
 				p.setEmail(rs.getString("email"));
-				p.setId(rs.getInt("id"));
+				
 				ls.add(p);
 			}
 			cont.close();

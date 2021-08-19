@@ -37,6 +37,11 @@ td {
   min-width: 150px;
   height: 20px;
 }
+a:hover {
+    cursor: pointer;
+    background-color: blueviolet;
+    color: white;
+}
 
 a {
     border: 2px solid blueviolet;
@@ -50,11 +55,7 @@ a {
 }
 
 
-a:hover {
-    cursor: pointer;
-    background-color: blueviolet;
-    color: white;
-}
+
 
 </style>
 </head>
@@ -82,8 +83,10 @@ a:hover {
 			<td><%=p.getId()%></td>
 			<td><%=p.getNomeCompleto()%></td>
 			<td><%=p.getEmail()%></td>
-			<td><a href="formCadastro.jsp?id=<%=p.getId()%>" >Editar</a>
-			<a href="cadastroServlet?acao=apagar&id=<%=p.getId()%>" > Apagar</a></td>
+			<td>
+			<a href="formCadastro.jsp?id=<%=p.getId()%>" >Editar</a>
+			<a href="cadastroServlet?acao=apagar&id=<%=p.getId()%>" > Apagar</a>
+			</td>
 		</tr>
 		<%
 		}

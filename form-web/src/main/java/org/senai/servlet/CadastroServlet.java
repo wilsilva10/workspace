@@ -24,9 +24,9 @@ public class CadastroServlet extends HttpServlet {
 		if (acao != null && acao.equals("apagar")) {
 			objP.setId(Integer.parseInt(req.getParameter("id")));
 		} else {
-			objP.setNomeCompleto(req.getParameter("nomecompleto"));
+			objP.setNomeCompleto(req.getParameter("nome-completo"));
 			objP.setTelefone(req.getParameter("telefone"));
-			objP.setDtNascimento(req.getParameter("dtnascimento"));
+			objP.setDtNascimento(req.getParameter("dt-nascimento"));
 			objP.setEmail(req.getParameter("email"));
 			objP.setSexo(req.getParameter("sexo"));
 			objP.setTecnologia(req.getParameterValues("tecnologia"));
