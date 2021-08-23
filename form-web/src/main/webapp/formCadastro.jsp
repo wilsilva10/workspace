@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<%@ include file="menu.jsp"%>
 	<%
 	Pessoa p = new Pessoa();
 	try {
@@ -30,7 +31,7 @@
 
 
 	<form action="cadastroServlet">
-	<input type="hidden" name="id" value="<%=p.getId()%>">
+		<input type="hidden" name="id" value="<%=p.getId()%>">
 		<fieldset>
 			<legend>CADASTRO</legend>
 			<img id="img-java" src="img/java.png" alt="imagem java"> <label
@@ -65,9 +66,22 @@
 				<option value="">Selecione</option>
 				<option value="Fundamental">Fundamental</option>
 				<option value="Ensino Médio">Ensino Médio</option>
-				<option value="Superio">Superior</option>
-			</select> <input type="submit" class="bt" value="Enviar"> <input
-				type="reset" class="bt" value="Limpar">
+				<option value="Superio">Superio</option>
+			</select> <a class="bt" href="formCadastro.jsp">Novo Cadastro</a>
+			<%
+			if (p.getId() > 0) {
+			%>
+			<a class="bt"
+				onclick="return confirm('Você realmente quer apagar esse registro?');"
+				href="cadastroServlet?id=<%=p.getId()%>&acao=apagar">Apagar</a>
+			<%
+			} else {
+			%>
+			<input type="reset" class="bt" value="Limpar">
+			<%
+			}
+			%>
+			<input type="submit" class="bt" value="Gravar">
 		</fieldset>
 	</form>
 	<script type="text/javascript">
@@ -77,15 +91,17 @@
 				lsSexo[i].setAttribute('checked', 'checked');
 			}
 		}
-		
-		document.getElementById("escolaridade").value = "<%=p.getEscolaridade()%>";
-	<%
-	for (String t : p.getTecnologia()) {
+		document.getElementById("escolaridade").value = '<%=p.getEscolaridade()%>';
+	<%for (String t : p.getTecnologia()) {
 	out.println("document.getElementById('" + t + "').setAttribute('checked', 'checked')");
-}
-%>
+}%>
 		
 	</script>
+	
+	<div id="tb">
+
+		<%@ include file="listaPessoas.jsp"%>
+	</div>
 </body>
 
 </html>

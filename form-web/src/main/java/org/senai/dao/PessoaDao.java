@@ -13,8 +13,10 @@ public class PessoaDao {
 
 	public boolean adicionar(Pessoa objP) {
 		String lsTecnologia = "";
-		for (String t : objP.getTecnologia()) {
-			lsTecnologia += t + ",";
+		if (objP.getTecnologia() != null) {
+			for (String t : objP.getTecnologia()) {
+				lsTecnologia += t + ",";
+			}
 		}
 		try {
 			Connection cont = Conexao.conectar();
@@ -42,10 +44,9 @@ public class PessoaDao {
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
 				Pessoa p = new Pessoa();
-				p.setId(rs.getInt("id"));
 				p.setNomeCompleto(rs.getString("nomecompleto"));
 				p.setEmail(rs.getString("email"));
-				
+				p.setId(rs.getInt("id"));
 				ls.add(p);
 			}
 			cont.close();
@@ -82,23 +83,19 @@ public class PessoaDao {
 
 	public boolean alterar(Pessoa objP) {
 		String lsTecnologia = "";
-		for (String t : objP.getTecnologia()) {
-			lsTecnologia += t + ",";
+		if (objP.getTecnologia() != null) {
+			for (String t : objP.getTecnologia()) {
+				lsTecnologia += t + ",";
+			}
 		}
+
 		try {
 			Connection cont = Conexao.conectar();
 
-			String sql = " update pessoas set "
-					+ "nomecompleto   = ?,"
-					+ "telefone        = ?,"
-					+ "dtnascimento   = ?,"
-					+ "email           = ?,"
-					+ "sexo            = ?,"
-					+ "tecnologia      = ?,"
-					+ "escolaridade    = ?"
-					+ "where "
-					+ "id				= ?";
-			
+			String sql = " update pessoas set " + "nomecompleto   = ?," + "telefone        = ?,"
+					+ "dtnascimento   = ?," + "email           = ?," + "sexo            = ?," + "tecnologia      = ?,"
+					+ "escolaridade    = ?" + "where " + "id				= ?";
+
 			PreparedStatement pst = cont.prepareStatement(sql);
 			pst.setString(1, objP.getNomeCompleto());
 			pst.setString(2, objP.getTelefone());
@@ -106,7 +103,7 @@ public class PessoaDao {
 			pst.setString(4, objP.getEmail());
 			pst.setString(5, objP.getSexo());
 			pst.setString(6, lsTecnologia);
-			pst.setString(7,objP.getEscolaridade());  
+			pst.setString(7, objP.getEscolaridade());
 			pst.setInt(8, objP.getId());
 
 			pst.execute();
@@ -118,14 +115,14 @@ public class PessoaDao {
 		}
 		return false;
 	}
-	
+
 	public boolean apagar(int id) {
 		try {
 			Connection cont = Conexao.conectar();
 
 			String sql = " delete from pessoas where  id = ?";
-			
-			PreparedStatement pst = cont.prepareStatement(sql);  
+
+			PreparedStatement pst = cont.prepareStatement(sql);
 			pst.setInt(1, id);
 
 			pst.execute();
